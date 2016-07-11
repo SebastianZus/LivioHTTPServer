@@ -580,8 +580,8 @@ static NSMutableArray *recentNonces;
                          forKey:(NSString *)kCFStreamSSLCertificates];
             
             // Configure this connection to use the highest possible SSL level
-            [settings setObject:(NSString *)kCFStreamSocketSecurityLevelNegotiatedSSL
-                         forKey:(NSString *)kCFStreamSSLLevel];
+            [settings setObject:[NSNumber numberWithInteger:kSSLProtocol3]
+                         forKey:(NSString *)GCDAsyncSocketSSLProtocolVersionMin];
             
             [asyncSocket startTLS:settings];
         }
